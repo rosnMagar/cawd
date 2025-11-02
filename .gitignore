@@ -1,0 +1,92 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+ENV/
+env/
+.env/
+.venv/
+backend/.cawd/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+.pytest_cache/
+.tox/
+coverage.xml
+htmlcov/
+.cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# mypy
+.mypy_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment files with secrets
+.env
+.env.*
+
+# Large ML artifacts and model weights
+yolov8n.pt
+*.pt
+*.pth
+*.ckpt
+*.onnx
+weights/
+models/
+
+# OpenCV/GUI temporary
+*.db
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
+
+# Node/npm artifacts (if front-end added later)
+node_modules/
+npm-debug.log*
+
+# Python bytecode cache from compiled packages
+__pypackages__/
+
