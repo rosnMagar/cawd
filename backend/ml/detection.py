@@ -2,9 +2,9 @@ from ultralytics import YOLO
 import cv2
 
 class Detector:
-    def __init__(self):
+    def __init__(self, model_name="yolov8n.pt"):
         try:
-            self.model = YOLO("yolov8n.pt")
+            self.model = YOLO(model_name)
         except Exception as e:
             print(f"Error loading YOLO model: {e}")
             self.model = None

@@ -5,6 +5,10 @@ import numpy as np
 import time
 import asyncio
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 WEBSOCKET_URL = os.getenv("WEBSOCKET_URL", "ws://localhost:8000/ws")
 FRAME_WIDTH = int(os.getenv("FRAME_WIDTH", 640))
 FRAME_HEIGHT = int(os.getenv("FRAME_HEIGHT", 480))

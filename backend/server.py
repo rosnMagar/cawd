@@ -13,9 +13,17 @@ app = FastAPI()
 async def read_root():  
     return {"Hello": "World"}
 
-@app.websocket("/ws")
-async def websocket_endpoint(websocket: WebSocket):
+@app.websocket("/ws/{model_name}")
+async def websocket_endpoint(websocket: WebSocket, model_name: str):
     await websocket.accept()
+
+    if model_name == "":
+        model_name = "yolov8n.pt"
+    else:
+        if model_name not in ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x"]:
+            model_name = "yolov8n"
+        else:
+            model_name = f"{model_name}.pt"
     try:
         while True:
             data = await websocket.receive_bytes()
@@ -25,7 +33,7 @@ async def websocket_endpoint(websocket: WebSocket):
             nparr = np.frombuffer(data, np.uint8)
             data = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-            detector = Detector()
+            detector = Detector(model_name=model_name)
             annotated_frame = detector.annotate(data)
 
             await websocket.send_bytes(annotated_frame)
