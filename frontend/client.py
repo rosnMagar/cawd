@@ -1,5 +1,6 @@
 import cv2 
 import os
+import sys
 import websockets
 import numpy as np
 import time
@@ -9,7 +10,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-WEBSOCKET_URL = os.getenv("WEBSOCKET_URL", "ws://localhost:8000/ws")
+
+MODEL = "yolov8n"
+if len(sys.argv) > 1:
+   MODEL = sys.argv[0] 
+
+WEBSOCKET_URL = os.getenv("WEBSOCKET_URL", "ws://localhost:8000/ws") + f"/{MODEL}"
 FRAME_WIDTH = int(os.getenv("FRAME_WIDTH", 640))
 FRAME_HEIGHT = int(os.getenv("FRAME_HEIGHT", 480))
 FPS_TARGET = int(os.getenv("FPS_TARGET", 30))
