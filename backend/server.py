@@ -20,8 +20,8 @@ async def websocket_endpoint(websocket: WebSocket, model_name: str):
     if model_name == "":
         model_name = "yolov8n.pt"
     else:
-        if model_name not in ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x", "yolo118n-pose"]:
-            model_name = "yolov8n"
+        if model_name not in ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x", "yolo11n-pose"]:
+            model_name = "yolov8n.pt"
         else:
             model_name = f"{model_name}.pt"
     try:
